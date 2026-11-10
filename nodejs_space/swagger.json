@@ -1,0 +1,1650 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/api/signup": {
+      "post": {
+        "operationId": "AuthController_signup",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignupDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "operationId": "AuthController_me",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/api/game/state": {
+      "get": {
+        "operationId": "GameController_getState",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameStateResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/hustle": {
+      "post": {
+        "operationId": "GameController_hustle",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HustleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/business/buy": {
+      "post": {
+        "operationId": "GameController_buyBusiness",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuyBusinessDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/business/upgrade": {
+      "post": {
+        "operationId": "GameController_upgradeBusiness",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessIdDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/business/hire": {
+      "post": {
+        "operationId": "GameController_hire",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessIdDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/property/buy": {
+      "post": {
+        "operationId": "GameController_buyProperty",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuyPropertyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/vehicle/buy": {
+      "post": {
+        "operationId": "GameController_buyVehicle",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuyVehicleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/invest/research": {
+      "post": {
+        "operationId": "GameController_research",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResearchDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/invest": {
+      "post": {
+        "operationId": "GameController_invest",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/invest/collect": {
+      "post": {
+        "operationId": "GameController_collectInvestment",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CollectInvestmentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/event/resolve": {
+      "post": {
+        "operationId": "GameController_resolveEvent",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResolveEventDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/daily/claim": {
+      "post": {
+        "operationId": "GameController_claimDaily",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/collect-offline": {
+      "post": {
+        "operationId": "GameController_collectOffline",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/loan/take": {
+      "post": {
+        "operationId": "GameController_takeLoan",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/loan/repay": {
+      "post": {
+        "operationId": "GameController_repayLoan",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/boss-coins/spend": {
+      "post": {
+        "operationId": "GameController_spendBossCoins",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpendBossCoinsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/game/ad-reward": {
+      "post": {
+        "operationId": "GameController_adReward",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdRewardDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Game"
+        ]
+      }
+    },
+    "/api/leaderboard/{type}": {
+      "get": {
+        "operationId": "LeaderboardController_getLeaderboard",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeaderboardResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Leaderboard"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Api",
+    "description": "",
+    "version": "0.1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "SignupDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 6
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "playerName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "avatarEmoji": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password",
+          "name",
+          "playerName"
+        ]
+      },
+      "UserInfoDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "playerName": {
+            "type": "string"
+          },
+          "avatarEmoji": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "email",
+          "name",
+          "playerName",
+          "avatarEmoji"
+        ]
+      },
+      "AuthResponseDto": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserInfoDto"
+          }
+        },
+        "required": [
+          "token",
+          "user"
+        ]
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "MeResponseDto": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/UserInfoDto"
+          }
+        },
+        "required": [
+          "user"
+        ]
+      },
+      "GameStateDataDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "cash": {
+            "type": "number"
+          },
+          "xp": {
+            "type": "number"
+          },
+          "xpToNext": {
+            "type": "number"
+          },
+          "level": {
+            "type": "number"
+          },
+          "bossCoins": {
+            "type": "number"
+          },
+          "totalEarned": {
+            "type": "number"
+          },
+          "totalHustleTaps": {
+            "type": "number"
+          },
+          "reputation": {
+            "type": "number"
+          },
+          "investmentReturns": {
+            "type": "number"
+          },
+          "investmentWinRate": {
+            "type": "number"
+          },
+          "investmentsMade": {
+            "type": "number"
+          },
+          "investmentsWon": {
+            "type": "number"
+          },
+          "weekStartNetWorth": {
+            "type": "number"
+          },
+          "weekStartDate": {
+            "type": "string"
+          },
+          "offlineMaxHours": {
+            "type": "number"
+          },
+          "xpBoostUntil": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastActiveAt": {
+            "type": "string"
+          },
+          "adCountToday": {
+            "type": "number"
+          },
+          "maxAdsPerDay": {
+            "type": "number"
+          },
+          "energy": {
+            "type": "number"
+          },
+          "maxEnergy": {
+            "type": "number"
+          },
+          "energyRegenSeconds": {
+            "type": "number"
+          },
+          "energyUpdatedAt": {
+            "type": "string"
+          },
+          "dailyStreak": {
+            "type": "number"
+          },
+          "dailyAvailable": {
+            "type": "boolean"
+          },
+          "nextDailyDay": {
+            "type": "number"
+          },
+          "debt": {
+            "type": "number"
+          },
+          "creditLimit": {
+            "type": "number"
+          },
+          "netWorth": {
+            "type": "number"
+          },
+          "passiveIncomePerSecond": {
+            "type": "number"
+          },
+          "businessIncomePerSecond": {
+            "type": "number"
+          },
+          "rentIncomePerSecond": {
+            "type": "number"
+          },
+          "hustleBonus": {
+            "type": "number"
+          },
+          "globalMultiplier": {
+            "type": "number"
+          },
+          "rankIndex": {
+            "type": "number"
+          },
+          "rankTitle": {
+            "type": "string"
+          },
+          "researchCost": {
+            "type": "number"
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "vehicles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "unlockedDistricts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "cash",
+          "xp",
+          "xpToNext",
+          "level",
+          "bossCoins",
+          "totalEarned",
+          "totalHustleTaps",
+          "reputation",
+          "investmentReturns",
+          "investmentWinRate",
+          "investmentsMade",
+          "investmentsWon",
+          "weekStartNetWorth",
+          "weekStartDate",
+          "offlineMaxHours",
+          "xpBoostUntil",
+          "lastActiveAt",
+          "adCountToday",
+          "maxAdsPerDay",
+          "energy",
+          "maxEnergy",
+          "energyRegenSeconds",
+          "energyUpdatedAt",
+          "dailyStreak",
+          "dailyAvailable",
+          "nextDailyDay",
+          "debt",
+          "creditLimit",
+          "netWorth",
+          "passiveIncomePerSecond",
+          "businessIncomePerSecond",
+          "rentIncomePerSecond",
+          "hustleBonus",
+          "globalMultiplier",
+          "rankIndex",
+          "rankTitle",
+          "researchCost",
+          "properties",
+          "vehicles",
+          "unlockedDistricts"
+        ]
+      },
+      "BusinessDataDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "businessType": {
+            "type": "string"
+          },
+          "level": {
+            "type": "number"
+          },
+          "employees": {
+            "type": "number"
+          },
+          "customName": {
+            "type": "string",
+            "nullable": true
+          },
+          "incomeBoostUntil": {
+            "type": "string",
+            "nullable": true
+          },
+          "purchasedAt": {
+            "type": "string"
+          },
+          "incomePerSecond": {
+            "type": "number"
+          },
+          "grossPerSecond": {
+            "type": "number"
+          },
+          "expensesPerSecond": {
+            "type": "number"
+          },
+          "upgradeCost": {
+            "type": "number",
+            "nullable": true
+          },
+          "hireCost": {
+            "type": "number",
+            "nullable": true
+          },
+          "value": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "businessType",
+          "level",
+          "employees",
+          "customName",
+          "incomeBoostUntil",
+          "purchasedAt",
+          "incomePerSecond",
+          "grossPerSecond",
+          "expensesPerSecond",
+          "upgradeCost",
+          "hireCost",
+          "value"
+        ]
+      },
+      "AchievementDataDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "achievementKey": {
+            "type": "string"
+          },
+          "progress": {
+            "type": "number"
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "completedAt": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "achievementKey",
+          "progress",
+          "completed",
+          "completedAt"
+        ]
+      },
+      "InvestmentDataDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "opportunityKey": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "researched": {
+            "type": "boolean"
+          },
+          "sentiment": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "won",
+              "lost"
+            ]
+          },
+          "multiplier": {
+            "type": "number",
+            "nullable": true
+          },
+          "payout": {
+            "type": "number",
+            "nullable": true
+          },
+          "maturesAt": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "opportunityKey",
+          "amount",
+          "researched",
+          "sentiment",
+          "status",
+          "multiplier",
+          "payout",
+          "maturesAt",
+          "createdAt"
+        ]
+      },
+      "ResearchHintDto": {
+        "type": "object",
+        "properties": {
+          "opportunityKey": {
+            "type": "string"
+          },
+          "sentiment": {
+            "type": "string",
+            "enum": [
+              "bearish",
+              "neutral",
+              "bullish"
+            ]
+          }
+        },
+        "required": [
+          "opportunityKey",
+          "sentiment"
+        ]
+      },
+      "PendingEventDto": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "choices": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "key",
+          "title",
+          "description",
+          "choices"
+        ]
+      },
+      "OfflineIncomeDto": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "secondsAway": {
+            "type": "number"
+          },
+          "cappedAtHours": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "amount",
+          "secondsAway",
+          "cappedAtHours"
+        ]
+      },
+      "GameStateResponseDto": {
+        "type": "object",
+        "properties": {
+          "gameState": {
+            "$ref": "#/components/schemas/GameStateDataDto"
+          },
+          "businesses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BusinessDataDto"
+            }
+          },
+          "achievements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AchievementDataDto"
+            }
+          },
+          "investments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InvestmentDataDto"
+            }
+          },
+          "research": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchHintDto"
+            }
+          },
+          "pendingEvent": {
+            "nullable": true,
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PendingEventDto"
+              }
+            ]
+          },
+          "offlineIncome": {
+            "nullable": true,
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OfflineIncomeDto"
+              }
+            ]
+          },
+          "playerName": {
+            "type": "string"
+          },
+          "avatarEmoji": {
+            "type": "string"
+          },
+          "hasAvatarFrame": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "gameState",
+          "businesses",
+          "achievements",
+          "investments",
+          "research",
+          "pendingEvent",
+          "offlineIncome",
+          "playerName",
+          "avatarEmoji",
+          "hasAvatarFrame"
+        ]
+      },
+      "HustleDto": {
+        "type": "object",
+        "properties": {
+          "hustleType": {
+            "type": "string",
+            "enum": [
+              "wash_cars",
+              "lawn_care",
+              "deliver_food",
+              "cleaning",
+              "moving",
+              "sneaker_resell",
+              "phone_repair",
+              "food_stand",
+              "clothing_resell"
+            ]
+          }
+        },
+        "required": [
+          "hustleType"
+        ]
+      },
+      "ActionResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "leveledUp": {
+            "type": "boolean"
+          },
+          "newLevel": {
+            "type": "number",
+            "nullable": true
+          },
+          "bossCoinsAwarded": {
+            "type": "number"
+          },
+          "achievementsUnlocked": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "state": {
+            "$ref": "#/components/schemas/GameStateResponseDto"
+          }
+        },
+        "required": [
+          "success",
+          "message",
+          "amount",
+          "leveledUp",
+          "newLevel",
+          "bossCoinsAwarded",
+          "achievementsUnlocked",
+          "state"
+        ]
+      },
+      "BuyBusinessDto": {
+        "type": "object",
+        "properties": {
+          "businessType": {
+            "type": "string",
+            "enum": [
+              "lemonade_stand",
+              "car_wash",
+              "food_truck",
+              "barbershop",
+              "restaurant",
+              "nightclub",
+              "hotel",
+              "tech_hq"
+            ]
+          }
+        },
+        "required": [
+          "businessType"
+        ]
+      },
+      "BusinessIdDto": {
+        "type": "object",
+        "properties": {
+          "businessId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "businessId"
+        ]
+      },
+      "BuyPropertyDto": {
+        "type": "object",
+        "properties": {
+          "propertyKey": {
+            "type": "string",
+            "enum": [
+              "duplex",
+              "apartment_block",
+              "loft_tower",
+              "skyscraper"
+            ]
+          }
+        },
+        "required": [
+          "propertyKey"
+        ]
+      },
+      "BuyVehicleDto": {
+        "type": "object",
+        "properties": {
+          "vehicleKey": {
+            "type": "string",
+            "enum": [
+              "sedan",
+              "van",
+              "supercar"
+            ]
+          }
+        },
+        "required": [
+          "vehicleKey"
+        ]
+      },
+      "ResearchDto": {
+        "type": "object",
+        "properties": {
+          "opportunityKey": {
+            "type": "string",
+            "enum": [
+              "blue_chip",
+              "real_estate_fund",
+              "gold_bullion",
+              "penny_stock",
+              "startup_angel",
+              "crypto_coin"
+            ]
+          }
+        },
+        "required": [
+          "opportunityKey"
+        ]
+      },
+      "InvestDto": {
+        "type": "object",
+        "properties": {
+          "opportunityKey": {
+            "type": "string",
+            "enum": [
+              "blue_chip",
+              "real_estate_fund",
+              "gold_bullion",
+              "penny_stock",
+              "startup_angel",
+              "crypto_coin"
+            ]
+          },
+          "amount": {
+            "type": "number",
+            "minimum": 10
+          }
+        },
+        "required": [
+          "opportunityKey",
+          "amount"
+        ]
+      },
+      "CollectInvestmentDto": {
+        "type": "object",
+        "properties": {
+          "investmentId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "investmentId"
+        ]
+      },
+      "ResolveEventDto": {
+        "type": "object",
+        "properties": {
+          "choiceIndex": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "adProtection": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "choiceIndex"
+        ]
+      },
+      "LoanDto": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "amount"
+        ]
+      },
+      "SpendBossCoinsDto": {
+        "type": "object",
+        "properties": {
+          "itemKey": {
+            "type": "string",
+            "enum": [
+              "energy_refill",
+              "business_rename",
+              "offline_boost",
+              "xp_booster",
+              "avatar_frame"
+            ]
+          },
+          "targetBusinessId": {
+            "type": "number"
+          },
+          "newName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30
+          }
+        },
+        "required": [
+          "itemKey"
+        ]
+      },
+      "AdRewardDto": {
+        "type": "object",
+        "properties": {
+          "rewardType": {
+            "type": "string",
+            "enum": [
+              "offline_double",
+              "business_boost",
+              "energy_refill",
+              "free_research",
+              "daily_double"
+            ]
+          },
+          "targetBusinessId": {
+            "type": "number"
+          },
+          "opportunityKey": {
+            "type": "string",
+            "enum": [
+              "blue_chip",
+              "real_estate_fund",
+              "gold_bullion",
+              "penny_stock",
+              "startup_angel",
+              "crypto_coin"
+            ]
+          }
+        },
+        "required": [
+          "rewardType"
+        ]
+      },
+      "LeaderboardEntryDto": {
+        "type": "object",
+        "properties": {
+          "rank": {
+            "type": "number"
+          },
+          "userId": {
+            "type": "number"
+          },
+          "playerName": {
+            "type": "string"
+          },
+          "avatarEmoji": {
+            "type": "string"
+          },
+          "netWorth": {
+            "type": "number"
+          },
+          "level": {
+            "type": "number"
+          },
+          "empireValue": {
+            "type": "number"
+          },
+          "businessCount": {
+            "type": "number"
+          },
+          "investmentReturns": {
+            "type": "number"
+          },
+          "winRate": {
+            "type": "number"
+          },
+          "reputation": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "weeklyGrowth": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "rank",
+          "userId",
+          "playerName",
+          "avatarEmoji"
+        ]
+      },
+      "LeaderboardResponseDto": {
+        "type": "object",
+        "properties": {
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LeaderboardEntryDto"
+            }
+          },
+          "myRank": {
+            "nullable": true,
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LeaderboardEntryDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "entries",
+          "myRank"
+        ]
+      }
+    }
+  }
+}

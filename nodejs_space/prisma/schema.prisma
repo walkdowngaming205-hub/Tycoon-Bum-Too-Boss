@@ -1,0 +1,117 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "../node_modules/.prisma/client"
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model user {
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  password     String
+  name         String
+  playerName   String
+  avatarEmoji  String        @default("😎")
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  achievements achievement[]
+  businesses   business[]
+  gameState    game_state?
+  investments  investment[]
+}
+
+model game_state {
+  id                    Int       @id @default(autoincrement())
+  userId                Int       @unique
+  cash                  Float     @default(50)
+  xp                    Int       @default(0)
+  level                 Int       @default(1)
+  bossCoins             Int       @default(50)
+  totalEarned           Float     @default(0)
+  totalHustleTaps       Int       @default(0)
+  totalBossCoinsEarned  Int       @default(50)
+  reputation            Int       @default(10)
+  investmentReturns     Float     @default(0)
+  investmentWinRate     Float     @default(0)
+  weekStartNetWorth     Float     @default(50)
+  weekStartDate         DateTime  @default(now())
+  offlineMaxHours       Int       @default(4)
+  xpBoostUntil          DateTime?
+  tapBoostUntil         DateTime?
+  hasAvatarFrame        Boolean   @default(false)
+  lastActiveAt          DateTime  @default(now())
+  adCountToday          Int       @default(0)
+  adCountResetDate      DateTime  @default(now())
+  energy                Int       @default(100)
+  energyUpdatedAt       DateTime  @default(now())
+  dailyStreak           Int       @default(0)
+  lastDailyClaim        DateTime?
+  properties            String[]  @default([])
+  vehicles              String[]  @default([])
+  researched            String[]  @default([])
+  pendingEvent          String?
+  lastEventAt           DateTime  @default(now())
+  investmentsMade       Int       @default(0)
+  investmentsWon        Int       @default(0)
+  debt                  Float     @default(0)
+  pendingOffline        Float     @default(0)
+  pendingOfflineSeconds Int       @default(0)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  user                  user      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model business {
+  id               Int       @id @default(autoincrement())
+  userId           Int
+  businessType     String
+  level            Int       @default(1)
+  employees        Int       @default(0)
+  customName       String?
+  incomeBoostUntil DateTime?
+  purchasedAt      DateTime  @default(now())
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  user             user      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, businessType])
+  @@index([userId])
+}
+
+model achievement {
+  id             Int       @id @default(autoincrement())
+  userId         Int
+  achievementKey String
+  progress       Int       @default(0)
+  completed      Boolean   @default(false)
+  completedAt    DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  user           user      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, achievementKey])
+  @@index([userId])
+}
+
+model investment {
+  id             Int       @id @default(autoincrement())
+  userId         Int
+  opportunityKey String
+  amount         Float
+  sentiment      String
+  researched     Boolean   @default(false)
+  status         String    @default("active")
+  multiplier     Float?
+  payout         Float?
+  maturesAt      DateTime
+  createdAt      DateTime  @default(now())
+  resolvedAt     DateTime?
+  user           user      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
